@@ -7,6 +7,7 @@ const SettingsProvider = ({ children }) => {
   const [showCompleted, setShowCompleted] = useState(false);
   const [pageItems, setPageItems] = useState(3);
   const [sort, setSort] = useState('difficulty');
+  console.log('pageItems#########################', pageItems);
 
   const values = {
     showCompleted,
