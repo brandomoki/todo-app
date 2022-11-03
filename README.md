@@ -1,3 +1,49 @@
+# Todo List - Context
+
+Authors: Brandon Pitts paired often with Stephen Clemmer
+
+> **Describe how global state is consumed by the components**
+
+React tracks state usage in render so that if only the part of state consumed by the component is changed, it will re-render only the components that require re-rendering.[Source](https://www.basefactor.com/global-state-with-react)
+
+> **Describe the operation of the hook: useForm()**
+
+ This function takes in a callback function and default values, and returns an object with a
+
+* handleChange function, a handleSubmit function, and a values object. The callback is the callback function that will be called when the form is submitted.
+* @param [defaultValues] - an object with the default values for the form
+
+## [x] Implement the React Context API for defining settings across the entire application
+
+* [x] Create a Context file for managing application display settings and provide this at the application level.
+* [x] Display or Hide completed items (boolean).
+* [x] Number of items to display per screen (number).
+* [x] Default sort field (string).
+* [x] Manually set (hard code) those state settings in the context provider’s state, they should not be changeable.
+
+## [x] Consume and utilize context values throughout your components
+
+* [x] Show a maximum of a certain number of items per screen in the <List /> component
+* [x] Use the Mantine Pagination component to let the users navigate a long list of items
+* [x] Hide completed items in the list (the ability to show will be added in a later lab)
+
+## [x] Pagination
+
+* [x] Only display the first n items in the list, where n is the number to display per screen in your settings context.
+* [x] If you have more than n items in the list, the Pagination Component will add a button that, when clicked, will replace the list with the next n items in the list.
+* [x] the Pagination Component will also manage the previous (<) and next(>) arrow buttons upon correct implementation.
+
+## [x] Style
+
+* [x] Style the application using the Mantine Component API{target:_blank}
+* [x] Use the image comp found in the lab instructions to style your ToDo App
+
+## Resources
+
+I transcribed content from Ryan's in-class demo code.
+[React Context API Tutorial](https://www.youtube.com/watch?v=3yrMcx02jXs)
+
+<!-- ______________________________________________________ -->
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

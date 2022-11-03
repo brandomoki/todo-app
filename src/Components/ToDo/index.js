@@ -135,7 +135,7 @@ the number of incomplete items. */
         </Grid.Col>
 
           <Grid.Col xs={12} sm={8}>
-            <List list={list} toggleComplete={toggleComplete}></List>
+            <List list={list} toggleComplete={toggleComplete} deleteItem={deleteItem}></List>
           </Grid.Col>
       </Grid>
      

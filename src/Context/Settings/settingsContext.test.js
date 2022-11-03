@@ -1,25 +1,31 @@
 import '@testing-library/jest-dom';
 import { screen, render } from '@testing-library/react';
-import ModeProvider, { ModeContext } from './settingsContext';
+import SettingsProvider, { SettingsContext } from './settingsContext';
 
 describe('Mode Context', () => {
   test('provides initial state from context', () => {
     render(
-      <ModeProvider>
-        <ModeContext.Consumer>
-          {
-            ({ mode }) => (
-              <>
-                <h2>ModeProvider Initial State</h2>
-                <h3 data-testid="mode-test">{mode} mode from context!</h3>
-              </>
-            )
-          }
-        </ModeContext.Consumer>
-      </ModeProvider>
+      <SettingsProvider>
+      <SettingsContext.Consumer>
+        {
+          ({ showCompleted, pageItems, sort }) => (
+            <ul>
+              <li data-testid="show-completed">{showCompleted.toString()}</li>
+              <li data-testid="page-items">{pageItems}</li>
+              <li data-testid="sort">{sort}</li>
+            </ul>
+          )
+        }
+      </SettingsContext.Consumer>
+    </SettingsProvider>
     );
 
-    const h3 = screen.getByTestId('mode-test');
-    expect(h3).toHaveTextContent('light mode from context!')
+    let completedLi = screen.getByTestId('show-completed');
+    let pageItemLi = screen.getByTestId('page-items');
+    let sortLi = screen.getByTestId('sort');
+
+    expect(completedLi).toHaveTextContent('false');
+    expect(pageItemLi).toHaveTextContent('3');
+    expect(sortLi).toHaveTextContent('difficulty');
   })
 })
