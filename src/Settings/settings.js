@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-
-
+import React, { useState, useContext } from 'react';
 
 import { NumberInput, Button, Card, createStyles, Grid, Switch, Text, TextInput } from '@mantine/core';
+import { SettingsContext } from '../Context/Settings/settingsContext';
 
 const useStyles = createStyles((theme) => ({
   h1: {
@@ -18,6 +17,9 @@ const useStyles = createStyles((theme) => ({
 }))
 
 const Settings = () => {
+  const { pageItems, setPageItems  } = useContext(SettingsContext);
+
+
   const { classes } = useStyles();
 
   return (
@@ -39,7 +41,7 @@ const Settings = () => {
                 placeholder="pick one"
                 max={10}
                 min={1}
-                // onChange={(e) => setPageItems(e.target.value) }
+                onChange={(value) => setPageItems({ ...value, value })}
                 />
 
               <TextInput
