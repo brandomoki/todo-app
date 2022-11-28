@@ -15,13 +15,15 @@ const useStyles = createStyles((theme) => ({
 const List = ({ list, toggleComplete, deleteItem }) => {
 
   const { classes } = useStyles();
-
-  /* This is destructuring the settings context and setting the page to 1. */
   const { pageItems, showCompleted } = useContext(SettingsContext);
   const [page, setPage] = useState(1);
 
 
-  /* This is the code that is used to paginate the list. */
+/* Filtering the list based on the showCompleted setting. Then it is calculating the start and end of
+the list to display based on the pageItems setting. Then it is calculating the number of pages based
+on the listToRender.length and pageItems setting. Then it is slicing the list to display based on
+the listStart and listEnd. */
+
   const listToRender = showCompleted ? list : list.filter(item => !item.complete)
   const listStart = pageItems * (page - 1);
   const listEnd = listStart + pageItems;
